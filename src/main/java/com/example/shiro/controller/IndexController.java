@@ -71,7 +71,7 @@ public class IndexController {
             e.printStackTrace();
             System.out.println(e.getMessage());
         }
-        return "redirect:login";
+        return "login";
     }
 
 
