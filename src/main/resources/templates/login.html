@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
@@ -8,12 +8,21 @@
 <h1>登录</h1>
 <!--<h1 th:text="${msg}"></h1>-->
 
-<form th:action="@{/login}">
+<form th:action="@{/useLogin}">
     <label>
         用户名:<input type="text" name="userName"><br/>
         密 码:<input type="password" name="password"><br/>
         <input type="submit" value="提交"/>
     </label>
 </form>
+<!--<script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.6.0/jquery.min.js"></script>-->
+<!--<script>-->
+<!--    $.ajax({-->
+<!--        type: 'post',-->
+<!--        url: '/userLogin',-->
+<!--        // 获取数据发送给后端-->
+<!--        data: {userName: $('#userName').val(), password: $('#password').val()},-->
+<!--    });-->
+<!--</script>-->
 </body>
 </html>

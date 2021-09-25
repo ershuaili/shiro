@@ -45,6 +45,11 @@ public class IndexController {
         return "update";
     }
 
+    @GetMapping("login")
+    public String toLogin() {
+        return "login";
+    }
+
     /**
      * 用户登录验证
      *
@@ -52,28 +57,31 @@ public class IndexController {
      * @param password 密码
      * @return result
      */
-    @RequestMapping("login")
+    @RequestMapping("useLogin")
     public String login(String userName, String password) {
+        System.out.println("1111111");
         //获取主体对象
         Subject subject = SecurityUtils.getSubject();
         // 登录验证
         try {
             // 创建用户token    验证登录
             subject.login(new UsernamePasswordToken(userName, password));
+            System.out.println("登录成功");
             return "redirect:/";
         } catch (UnknownAccountException e) {
             e.printStackTrace();
             System.out.println("用户名错误!");
+            return "redirect:login";
         } catch (IncorrectCredentialsException e) {
             e.printStackTrace();
             System.out.println("密码错误!");
+            return "redirect:login";
         } catch (Exception e) {
             e.printStackTrace();
-            System.out.println(e.getMessage());
+            System.out.println("未获取到账户信息");
+            return "redirect:login";
         }
-        return "login";
     }
-
 
     /**
      * 用户退出

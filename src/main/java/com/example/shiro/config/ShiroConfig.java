@@ -33,7 +33,7 @@ public class ShiroConfig {
         // 添加内置过滤器
         Map<String, String> filterMap = new LinkedHashMap<>();
 
-        filterMap.put("/login","anon");
+        filterMap.put("/useLogin","anon");
         filterMap.put("/register","anon");
         filterMap.put("/*","authc");
 
