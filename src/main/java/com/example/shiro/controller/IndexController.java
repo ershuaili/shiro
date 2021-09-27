@@ -11,6 +11,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 /**
  * <p>描述: [登录控制器] </p>
@@ -45,50 +46,64 @@ public class IndexController {
         return "update";
     }
 
+    /**
+     * 页面转跳
+     *
+     * @return 用户登录界面
+     */
     @GetMapping("login")
     public String toLogin() {
         return "login";
     }
 
     /**
-     * 用户登录验证
+     * 页面转跳
+     *
+     * @return 用户注册界面
+     */
+    @GetMapping("register")
+    public String toRegister() {
+        return "register";
+    }
+
+    /**
+     * 用户登录
      *
      * @param userName 用户名
      * @param password 密码
      * @return result
      */
-    @RequestMapping("useLogin")
-    public String login(String userName, String password) {
-        System.out.println("1111111");
+    @RequestMapping("userLogin")
+    public String userLogin(String userName, String password, RedirectAttributes redirectAttributes) {
         //获取主体对象
         Subject subject = SecurityUtils.getSubject();
         // 登录验证
         try {
             // 创建用户token    验证登录
             subject.login(new UsernamePasswordToken(userName, password));
-            System.out.println("登录成功");
             return "redirect:/";
         } catch (UnknownAccountException e) {
             e.printStackTrace();
-            System.out.println("用户名错误!");
+            redirectAttributes.addFlashAttribute("msg", "用户名错误");
             return "redirect:login";
         } catch (IncorrectCredentialsException e) {
             e.printStackTrace();
-            System.out.println("密码错误!");
+            redirectAttributes.addFlashAttribute("msg", "密码错误");
             return "redirect:login";
         } catch (Exception e) {
             e.printStackTrace();
-            System.out.println("未获取到账户信息");
-            return "redirect:login";
+            System.out.println("服务器内部错误");
+            return "error/500";
         }
     }
 
     /**
      * 用户退出
+     *
      * @return 视图
      */
-    @RequestMapping("logout")
-    public String logout(){
+    @GetMapping("logout")
+    public String logout() {
         // 获取用户主体对象
         Subject subject = SecurityUtils.getSubject();
         // 用户退出
@@ -101,14 +116,14 @@ public class IndexController {
      *
      * @return 视图
      */
-    @RequestMapping("register")
+    @RequestMapping("userRegister")
     public String register(User user) {
         try {
             userService.insert(user);
             return "redirect:login";
         } catch (Exception e) {
             e.printStackTrace();
-            return "register";
+            return "error/500";
         }
     }
 }
