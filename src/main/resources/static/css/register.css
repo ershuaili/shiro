@@ -1,0 +1,169 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+.html {
+    width: 100vw;
+    height: 100vh;
+    margin: auto;
+    overflow: hidden;
+    display: flex;
+}
+
+.index {
+    justify-content: center;
+    width: 100vw;
+    height: 100vh;
+    background-image: url(http://demo.mxyhn.xyz:8020/cssthemes6/lsvsdssf/images/bj_zhuce.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    padding: 10vh;
+}
+
+.register {
+    width: 600px;
+    height: 400px;
+    margin-left: 28%;
+    background-color: white;
+}
+
+.register-right {
+    float: left;
+    width: 350px;
+    height: 400px;
+    padding-left: 50px;
+    background: #FFF;
+    position: relative;
+}
+
+.register-left {
+    float: left;
+    width: 250px;
+    height: 400px;
+    padding-left: 51px;
+    background: #f8f8f8;
+}
+
+.re {
+    font-size: 20px;
+    margin: 20px auto;
+}
+
+.kuang_txt {
+    width: 236px;
+    height: 32px;
+    border: 1px solid #dddddd;
+    line-height: 32px;
+    padding-left: 32px;
+    color: #b1a9a9;
+    margin-bottom: 20px;
+}
+
+.icon-shoujihao::before {
+    content: "";
+    position: absolute;
+    left: 55px;
+    top: 73px
+}
+
+.icon-youxiang::before {
+    content: "";
+    position: absolute;
+    left: 55px;
+    top: 125px
+}
+
+.icon-mima::before {
+    content: "";
+    position: absolute;
+    left: 55px;
+    top: 177px
+}
+
+.icon-unlock::before {
+    content: "";
+    position: absolute;
+    left: 55px;
+    top: 229px
+}
+
+span {
+    padding-left: 5px;
+    font-size: 14px;
+}
+
+a {
+    text-decoration: none;
+}
+
+.lan {
+    color: #19aaf8;
+    padding-left: 0px;
+}
+
+.btn_zhuce {
+    margin-top: 30px;
+    width: 270px;
+    height: 33px;
+    background: #37b5f9;
+    font-size: 14px;
+    line-height: 33px;
+    text-align: center;
+    border: 0px;
+    color: #fff;
+    border-radius: 3px;
+    cursor: pointer;
+}
+
+.title,
+.zhanghao {
+    font-size: 12px;
+    line-height: 60px;
+    color: #999999;
+}
+
+.zhanghao {
+    line-height: 20px;
+}
+
+.zhanghao>a {
+    color: #37b5f9;
+}
+
+.register-left>a {
+    display: inline-block;
+    width: 130px;
+    height: 28px;
+    padding-left: 50px;
+    line-height: 25px;
+    margin-bottom: 20px;
+    border-radius: 3px;
+    position: relative;
+    font-size: 14px;
+    background-color: #fff;
+}
+
+.zhuce_qq {
+    border: 1px solid #37b5f9;
+    color: #37b5f9;
+}
+
+.zhuce_wx {
+    border: 1px solid #00c800;
+    color: #00c800;
+}
+
+.zhuce_wb {
+    border: 1px solid #f26d7e;
+    color: #f26d7e;
+}
+
+.icon-qq::before,
+.icon-shejiaotubiao-06::before,
+.icon-weixin::before {
+    content: "";
+    position: absolute;
+    left: 20px;
+}
